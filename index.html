@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Stock Management Tool</title>
+  </head>
+  <body>
+    <h1 class="bg-primary text-center py-3 text-light shadow-sm mb-5">Stock Management Tool</h1>
+
+    <section class="container mx-auto">
+        <!-- add stock -->
+        <div class="row justify-content-evenly">
+            <form id="add-stock" class="col-lg-6 col-md-12 border rounded border-success p-3 m-1" style="max-width: 450px;">
+                <h4 class="text-center">Add Stock</h4>
+                <div class="p-3">
+                    <label class="form-label">Select a Product</label>
+                    <select name="" id="add-product" required class="form-select">
+                        <option selected value="">-- select --</option>
+                        <option value="p1">PRODUCT 1</option>
+                        <option value="p2">PRODUCT 2</option>
+                        <option value="p3">PRODUCT 3</option>
+                    </select>
+                </div>
+                <div class="p-3">
+                    <label class="form-label">No. Items received</label>
+                    <input type="number" required min="1" id="add-number" class="form-control">
+                </div>
+                <div class="p-3">
+                    <label class="form-label">Price per Item Received</label>
+                    <input type="number" min="0.01" step="any" id="add-price" class="form-control">
+                </div>
+                <button type="button" class="btn btn-success" onclick="handleClickOnAdd()">Add Stock</button>
+            </form>
+            <!-- remove stock -->
+            <form id="add-stock" class="col-lg-6 col-md-12 border rounded border-danger p-3 m-1" style="max-width: 450px;">
+                <h4 class="text-center">Remove Stock</h4>
+                <div class="p-3">
+                    <label class="form-label">Select a Product</label>
+                    <select id="remove-product" class="form-select">
+                        <option selected value="">-- select --</option>
+                        <option value="p1">PRODUCT 1</option>
+                        <option value="p2">PRODUCT 2</option>
+                        <option value="p3">PRODUCT 3</option>
+                    </select>
+                </div>
+                <div class="p-3">
+                    <label class="form-label">Buyer email address</label>
+                    <input type="email" id="remove-email" class="form-control">
+                    <p id="email-error" class="text-danger m-0"></p>
+                </div>
+                <div class="p-3">
+                    <label class="form-label">No. Items Bought</label>
+                    <input type="number" min="1" id="remove-number" class="form-control">
+                </div>
+                <button type="button" onclick="handleClickOnRemove()" class="btn btn-danger">Remove Stock</button>
+            </form>
+        </div>
+
+        <!-- stock levels -->
+        <div class="border rounded border-warning p-3 my-3 mx-auto" style="max-width: 450px;">
+            <h4 class="text-center">Stock Levels</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>in Stock</th>
+                        <th>Average Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PRODUCT 1</td>
+                        <td id="p1-stock">0</td>
+                        <td>
+                            R<span id="p1-average-price">0</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>PRODUCT 2</td>
+                        <td id="p2-stock">0</td>
+                        <td>
+                            R<span id="p2-average-price">0</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>PRODUCT 3</td>
+                        <td id="p3-stock">0</td>
+                        <td>
+                            R<span id="p3-average-price">0</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>            
+        </div>
+    </section>
+
+    <script src="/script.js"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
